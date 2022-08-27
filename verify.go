@@ -6,6 +6,10 @@ import (
 	"time"
 )
 
+type SignedParams struct {
+	Domain string
+} 
+
 func SplitSections (lines []string) [][]string {
 	var sections [][]string
 	sectionNumber := 0
@@ -68,7 +72,7 @@ func ParseBody(lines []string) map[string]string {
 	return parsedBody
 }
 
-func Verify(token string, params interface{}) (*DecryptedToken, error)  {
+func Verify(token string, params SignedParams) (*DecryptedToken, error)  {
 	decryptedToken, err := Decrypt(token)
 	if err != nil {
 		return nil, err
@@ -93,9 +97,9 @@ func Verify(token string, params interface{}) (*DecryptedToken, error)  {
 		return nil, errors.New("It's not yet time to use the token")
 	}
 
-	/*if params.Domain != nil && params.Domain != parsedBody.Domain {
+	if params.Domain != "" && params.Domain != parsedBody["domain"] {
 		return nil, errors.New("Inappropriate token domain")
-	}*/
+	}
 
 	return decryptedToken, nil
 }

@@ -22,7 +22,7 @@ type Signature struct {
 
 type DecryptedToken struct {
 	Version int
-	Addresss string
+	Address string
 	StringBody string
 	Body map[string]string
 	Signature string
@@ -128,7 +128,7 @@ func Decrypt(token string) (*DecryptedToken, error) {
 		return nil, err
 	}
 
-	decryptedToken := DecryptedToken{ Version: version, Addresss: address.String(), StringBody: body, Signature: signature, PublicKey: publicKey }
+	decryptedToken := DecryptedToken{ Version: version, Address: address.String(), StringBody: body, Signature: signature, PublicKey: publicKey }
 
 	return &decryptedToken, nil
 }
