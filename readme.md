@@ -30,7 +30,7 @@ req.user = await User.findOne({ decoded.Address });
 ```
 
 ---
-...
+
 ## API
 
 ### Descrypt(signer, options)
