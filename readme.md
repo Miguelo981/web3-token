@@ -6,7 +6,7 @@ Web3 Token is a new way to authenticate users inspired in [web3-token](https://g
 ## Install
 
 ```bash
-$ go get https://github.com/Miguelo981/web3-token
+$ go get github.com/Miguelo981/web3-token
 ```
 
 ---
