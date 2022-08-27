@@ -1,2 +1,4 @@
 test/
 .idea
+go.sum
+sign.go
