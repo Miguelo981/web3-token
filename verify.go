@@ -8,12 +8,12 @@ import (
 
 type SignedParams struct {
 	Domain string
-} 
+}
 
-func SplitSections (lines []string) [][]string {
+func SplitSections(lines []string) [][]string {
 	var sections [][]string
 	sectionNumber := 0
-	for  i, _ := range lines {
+	for i, _ := range lines {
 		line := lines[i]
 		sections = append(sections, []string{line})
 		//sections[sectionNumber].push(line)
@@ -28,7 +28,7 @@ func SplitSections (lines []string) [][]string {
 
 func GetDomain(sections [][]string) string {
 	if strings.Contains(sections[0][0], "wants you to sign in with your Ethereum account") {
-		return strings.ReplaceAll(strings.ReplaceAll(sections[0][0], " wants you to sign in with your Ethereum account.",""), " ", "")
+		return strings.ReplaceAll(strings.ReplaceAll(sections[0][0], " wants you to sign in with your Ethereum account.", ""), " ", "")
 	}
 
 	return ""
@@ -55,7 +55,7 @@ func ParseBody(lines []string) map[string]string {
 	for _, v := range lines {
 		keyValues := strings.Split(v, ":")
 		newKey := strings.ToLower(strings.Replace(keyValues[0], " ", "-", -1))
-		parsedBody[newKey] = strings.Replace(v, keyValues[0] + ": ", "", 1)
+		parsedBody[newKey] = strings.Replace(v, keyValues[0]+": ", "", 1)
 	}
 
 	domain := GetDomain(sections)
@@ -72,7 +72,7 @@ func ParseBody(lines []string) map[string]string {
 	return parsedBody
 }
 
-func Verify(token string, params SignedParams) (*DecryptedToken, error)  {
+func Verify(token string, params SignedParams) (*DecryptedToken, error) {
 	decryptedToken, err := Decrypt(token)
 	if err != nil {
 		return nil, err
@@ -87,13 +87,13 @@ func Verify(token string, params SignedParams) (*DecryptedToken, error)  {
 
 	decryptedToken.Body = parsedBody
 
-	date, err := time.Parse(time.RFC3339Nano, parsedBody["expiration-time"])
-	if err == nil || date.After(time.Now()) {
+	date, _ := time.Parse(time.RFC3339Nano, parsedBody["expiration-time"])
+	if !time.Time.IsZero(date) && time.Now().After(date) {
 		return nil, errors.New("Token expired")
 	}
 
-	date, err = time.Parse(time.RFC3339Nano, parsedBody["not-before"])
-	if err == nil || parsedBody["not-before"] != "" && date.Before(time.Now()) {
+	date, _ = time.Parse(time.RFC3339Nano, parsedBody["not-before"])
+	if !time.Time.IsZero(date) && parsedBody["not-before"] != "" && time.Now().Before(date) {
 		return nil, errors.New("It's not yet time to use the token")
 	}
 
