@@ -1,6 +1,6 @@
 # Web3 Token
 
-Web3 Token is a new way to authenticate users inspired in [web3-token](https://github.com/bytesbay/web3-token) for Golang and use it as a middleware in your backends.
+Web3 Token is an open-source Golang library that empowers you to decode and verify web3 signed tokens within the Ethereum network. It offers a seamless solution for utilizing these tokens as authentication tokens in your Golang backends, facilitating the creation of middlewares and custom services with utmost convenience. Inspired in [web3-token](https://github.com/bytesbay/web3-token).
 
 ---
 ## Install
@@ -48,5 +48,24 @@ Name | Description | Required | Example
 
 ---
 
+## Contributing
+
+We welcome contributions to enhance the Web3 Dashboard and make it even better. To contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your modifications and commit the changes.
+4. Push your changes to your forked repository.
+5. Submit a pull request to the main repository.
+
 ## License
-Web3 Token is released under the MIT license. © 2022 Miguelo
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgements
+
+We would like to express our gratitude to the open-source community for their invaluable contributions and support.
+
+## Contact
+
+If you have any questions, suggestions, or feedback, please feel free to reach out to us at [email protected]
