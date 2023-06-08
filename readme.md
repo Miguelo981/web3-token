@@ -50,7 +50,7 @@ Name | Description | Required | Example
 
 ## Contributing
 
-We welcome contributions to enhance the Web3 Dashboard and make it even better. To contribute, please follow these steps:
+We welcome contributions to enhance the Web3-token and make it even better. To contribute, please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
