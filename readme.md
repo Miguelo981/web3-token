@@ -68,4 +68,4 @@ We would like to express our gratitude to the open-source community for their in
 
 ## Contact
 
-If you have any questions, suggestions, or feedback, please feel free to reach out to us at [email protected]
+If you have any questions, suggestions, or feedback, please feel free to reach out to us at ma.rodriguez.dev@gmail.com
